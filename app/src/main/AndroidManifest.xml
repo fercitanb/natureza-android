@@ -24,8 +24,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Registrar" />
-        <activity android:name=".SesionCliente"></activity>
+        <activity
+            android:name=".SessionCliente"
+            android:label="@string/title_activity_session_cliente"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SessionDristribuidor"
+            android:label="@string/title_activity_session_dristribuidor"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-
 
 </manifest>

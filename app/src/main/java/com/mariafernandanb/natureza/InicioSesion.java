@@ -414,11 +414,11 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
                     switch (response){
                         case 3:
                             Log.d("Session", "id: " + response);
-
+                            startActivity(new Intent(getApplicationContext(),SessionDristribuidor.class));
                             break;
                         case 4:
                             Log.d("Session", "id: " + response);
-                            startActivity(new Intent(getApplicationContext(),SesionCliente.class));
+                            startActivity(new Intent(getApplicationContext(),SessionCliente.class));
                             break;
                     }
                     /*if (response == 4) {
