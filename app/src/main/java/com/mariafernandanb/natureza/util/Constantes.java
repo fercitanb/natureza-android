@@ -10,6 +10,7 @@ public class Constantes {
 
     // URL from Services
     //public static final
-    public static final String _URL_AUTENTIFICACION = "http://192.168.1.44:90/natureza/WebServices/autentificacion.php";
-    public static final String _URL_REGISTRO = "http://192.168.1.44:90/natureza/WebServices/registroCliente.php";
+    static String ip = "10.0.0.18";
+    public static final String _URL_AUTENTIFICACION = "http://"+ip+":90/natureza/WebServices/autentificacion.php";
+    public static final String _URL_REGISTRO = "http://"+ip+":90/natureza/WebServices/registroCliente.php";
 }
