@@ -3,6 +3,7 @@ package com.mariafernandanb.natureza;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -406,6 +407,13 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
                 JSONObject group_info = new JSONObject(String.valueOf(result));
 
                 JSONArray code = group_info.getJSONArray("code");
+                JSONArray idUs = group_info.getJSONArray("idUs");
+                JSONArray nom = group_info.getJSONArray("nom");
+                String id = idUs.getString(0);
+                String nombre = nom.getString(0);
+                Log.d("Session", "id: " + id + " nombre: "+ nombre);
+                ((Init)getApplicationContext()).setIdUsuario(id);
+                ((Init)getApplicationContext()).setNombreUsuario(nombre);
 
                 for (int i = 0; i < code.length() ; i++) {
                     int response = code.getInt(i);
@@ -414,11 +422,11 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
                     switch (response){
                         case 3:
                             Log.d("Session", "id: " + response);
-
+                            startActivity(new Intent(getApplicationContext(),SessionDristribuidor.class));
                             break;
                         case 4:
                             Log.d("Session", "id: " + response);
-                            startActivity(new Intent(getApplicationContext(),SesionCliente.class));
+                            startActivity(new Intent(getApplicationContext(),SessionCliente.class));
                             break;
                     }
                     /*if (response == 4) {
