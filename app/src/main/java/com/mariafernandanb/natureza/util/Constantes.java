@@ -14,7 +14,7 @@ public class Constantes {
     public static final String _URL_AUTENTIFICACION = "http://"+ip+":90/natureza/WebServices/autentificacion.php";
     public static final String _URL_REGISTRO = "http://"+ip+":90/natureza/WebServices/registroCliente.php";
     public static final String _URL_DIRECCION = "http://"+ip+":90/natureza/WebServices/registroDireccion.php";
-
+    public static final String _URL_OBTENER_DIRECCION = "http://"+ip+":90/natureza/WebServices/recuperaDirecciones.php";
 
 
 }
