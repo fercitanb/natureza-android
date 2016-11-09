@@ -16,6 +16,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -94,7 +95,7 @@ public class Direcciones extends Fragment implements OnMapReadyCallback, GoogleM
         int id = (int) marker.getZIndex();
         Log.d("Dir", "Cast index: " + id);
 
-        startActivity(new Intent(getActivity(), registroDireccion.class).putExtra("idDireccion", id));
+        //startActivity(new Intent(getActivity(), registroDireccion.class).putExtra("idDireccion", id));
 
         return false;
     }
@@ -119,7 +120,7 @@ public class Direcciones extends Fragment implements OnMapReadyCallback, GoogleM
         protected Void doInBackground(Void... params) {
 
             try {
-                url = new URL(Constantes._URL_DIRECCION);
+                url = new URL(Constantes._URL_OBTENER_DIRECCION);
             } catch (MalformedURLException e){
                 e.printStackTrace();
             }
@@ -177,6 +178,7 @@ public class Direcciones extends Fragment implements OnMapReadyCallback, GoogleM
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            Log.d("resultado ob", "res " + result );
 
             try {
                 JSONObject group_info = new JSONObject(String.valueOf(result));
@@ -188,10 +190,11 @@ public class Direcciones extends Fragment implements OnMapReadyCallback, GoogleM
 
 
                     mMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(Double.parseDouble(jsonGroup.getString("")),Double.parseDouble(jsonGroup.getString(""))))
+                            .position(new LatLng(Double.parseDouble(jsonGroup.getString("latitud")),Double.parseDouble(jsonGroup.getString("longitud"))))
                             .title("Mi ubicación")
                             .snippet(jsonGroup.getString("nombreDireccion"))
                             .zIndex(Float.parseFloat(jsonGroup.getString("idDireccion"))));
+                            //.icon(BitmapDescriptorFactory.fromResource(R.drawable.mkr)));
 
                 }
 

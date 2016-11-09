@@ -29,7 +29,7 @@
 
         <EditText
             android:id="@+id/et_registro_direccion_nombre"
-            android:hint="Av. Ayacucho entre c. Uruguay y c. Aroma"
+            android:hint="Av. América #342 frente a la Cooperativa Sarco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -38,7 +38,11 @@
             android:text="Guardar Direccion"
             android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+
+            />
 
     </LinearLayout>
 
