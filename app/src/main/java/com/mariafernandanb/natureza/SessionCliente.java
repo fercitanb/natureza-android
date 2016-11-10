@@ -19,6 +19,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.mariafernandanb.natureza.option.Direcciones;
+import com.mariafernandanb.natureza.option.Equipos;
+import com.mariafernandanb.natureza.option.Pedidos;
+import com.mariafernandanb.natureza.option.Productos;
 
 public class SessionCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -125,6 +128,23 @@ public class SessionCliente extends AppCompatActivity
                 viewIsAtHome = true;
                 break;
 
+            case R.id.nav_item:
+                fragment = new Productos();
+                titleBar = getString(R.string.nav_client_item);
+                viewIsAtHome = false;
+                break;
+
+            case R.id.nav_device:
+                fragment = new Equipos();
+                titleBar = getString(R.string.nav_client_device);
+                viewIsAtHome = false;
+                break;
+
+            case R.id.nav_order:
+                fragment = new Pedidos();
+                titleBar = getString(R.string.nav_client_order);
+                viewIsAtHome = false;
+                break;
         }
 
         if (fragment != null) {

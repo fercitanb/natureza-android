@@ -8,13 +8,17 @@
             android:title="@string/nav_client_address" />
 
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_item"
             android:icon="@drawable/ic_nav_pro"
-            android:title="Productos" />
+            android:title="@string/nav_client_item" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_device"
             android:icon="@drawable/ic_nav_eq"
-            android:title="Equipos" />
+            android:title="@string/nav_client_device" />
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/ic_nav_eq"
+            android:title="@string/nav_client_order" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
