@@ -169,11 +169,7 @@ public class Registrar extends AppCompatActivity {
                             Log.d("Registro", "ERROR AL ENVIAR CORREO COMUNICARSE CON LA EMPRESA: " + response);
                             break;
                     }
-                    /*if (response == 4) {
-                        Toast.makeText(context, "Sanción guardada exitosamente!", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(context, "Error, Verifique su CI o CODIGO SECRETO", Toast.LENGTH_LONG).show();
-                    }*/
+
 
                     Log.d("Response", "value: " + response);
 

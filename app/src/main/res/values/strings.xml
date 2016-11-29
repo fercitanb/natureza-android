@@ -32,4 +32,8 @@
     <string name="nav_client_item">Productos</string>
     <string name="nav_client_device">Equipos</string>
     <string name="nav_client_order">Pedidos</string>
+    <string name="nav_dist_address">Direcciones de Pedidos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

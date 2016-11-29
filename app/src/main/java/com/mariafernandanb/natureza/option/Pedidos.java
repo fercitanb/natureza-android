@@ -36,7 +36,7 @@ public class Pedidos extends Fragment {
 
 
         recyclerViewItem.setAdapter(new ItemAdapter());
-        recyclerViewItem.setAdapter(new DeviceAdapter());
+        recyclerViewDevice.setAdapter(new DeviceAdapter());
 
 
         return view;

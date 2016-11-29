@@ -163,7 +163,7 @@ public class registroDireccion extends FragmentActivity implements OnMapReadyCal
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         actualizarUbicacion(location);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 15000, 0, locListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 100000, 0, locListener);
     }
 
     /**

@@ -10,14 +10,14 @@ public class Constantes {
 
     // URL from Services
     //public static final
-    static String ip = "192.168.43.63";
-    public static final String _URL_AUTENTIFICACION = "http://"+ip+":90/natureza/WebServices/autentificacion.php";
-    public static final String _URL_REGISTRO = "http://"+ip+":90/natureza/WebServices/registroCliente.php";
-    public static final String _URL_DIRECCION = "http://"+ip+":90/natureza/WebServices/registroDireccion.php";
-    public static final String _URL_OBTENER_DIRECCION = "http://"+ip+":90/natureza/WebServices/recuperaDirecciones.php";
-    public static final String _URL_OBTENER_PRODUCTOS = "http://"+ip+":90/natureza/WebServices/recuperaProductos.php";
-    public static final String _URL_OBTENER_EQUIPOS = "http://"+ip+":90/natureza/WebServices/recuperaEquipos.php";
-
+    static String ip = "http://natureza.nextbooks.xyz/WebServices";
+    public static final String _URL_AUTENTIFICACION = ip+"/autentificacion.php";
+    public static final String _URL_REGISTRO = ip+"/registroCliente.php";
+    public static final String _URL_DIRECCION = ip+"/registroDireccion.php";
+    public static final String _URL_OBTENER_DIRECCION = ip+"/recuperaDirecciones.php";
+    public static final String _URL_OBTENER_PRODUCTOS = ip+"/recuperaProductos.php";
+    public static final String _URL_OBTENER_EQUIPOS = ip+"/recuperaEquipos.php";
+    public static final String _URL_OBTENER_DIRECCIONPEDIDOS = ip+"/recuperaDireccionPedidos.php";
     /*
      Productos
     {"productos":[{"idProducto":"4","nombre":"Agua","medida":"20 Lts","precio":"13.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/14199356_1096766297026397_3574568724556265064_n.jpg"},{"idProducto":"6","nombre":"Ice Tea","medida":"250 ml","precio":"6.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/agua.jpg"},{"idProducto":"7","nombre":"agua rica","medida":"250 ml","precio":"3.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/bglogin.jpg"},{"idProducto":"19","nombre":"hielo","medida":"2 lt","precio":"3.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/hielo.jpg"},{"idProducto":"22","nombre":"jugo","medida":"500","precio":"8.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/depositphotos_6807908-Delivery-man-with-big-bottle.jpg"}]}

@@ -122,7 +122,7 @@ public class Equipos extends Fragment {
 
                 for (int i = 0; i < jsonArray.length() ; i++) {
                     JSONObject jsonGroup = jsonArray.getJSONObject(i);
-                    equiposModelos.add(i, new EquiposModelo(jsonGroup.getString("idEquipo"),jsonGroup.getString("nombre"),jsonGroup.getString("medida"),jsonGroup.getString("codigo"),jsonGroup.getString("imagen")));
+                    equiposModelos.add(i, new EquiposModelo(jsonGroup.getString("idEquipo"),jsonGroup.getString("nombre"),jsonGroup.getString("descripcion"),jsonGroup.getString("codigo"),jsonGroup.getString("imagen")));
                     recyclerView.setAdapter(new ItemAdapter(equiposModelos));
                 }
 

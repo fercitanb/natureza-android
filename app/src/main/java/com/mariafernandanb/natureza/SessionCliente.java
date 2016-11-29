@@ -23,6 +23,8 @@ import com.mariafernandanb.natureza.option.Equipos;
 import com.mariafernandanb.natureza.option.Pedidos;
 import com.mariafernandanb.natureza.option.Productos;
 
+import layout.opt_pedir;
+
 public class SessionCliente extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -88,7 +90,7 @@ public class SessionCliente extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_close) {
 
             return true;
         }
@@ -140,8 +142,13 @@ public class SessionCliente extends AppCompatActivity
                 viewIsAtHome = false;
                 break;
 
-            case R.id.nav_order:
+           /* case R.id.nav_order:
                 fragment = new Pedidos();
+                titleBar = getString(R.string.nav_client_order);
+                viewIsAtHome = false;
+                break;*/
+            case R.id.nav_order:
+                fragment = new opt_pedir();
                 titleBar = getString(R.string.nav_client_order);
                 viewIsAtHome = false;
                 break;

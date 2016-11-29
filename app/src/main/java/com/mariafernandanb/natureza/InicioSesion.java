@@ -33,6 +33,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.mariafernandanb.natureza.util.Constantes;
 
 import org.json.JSONArray;
@@ -82,6 +86,14 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
     private View mProgressView;
     private View mLoginFormView;
     private TextView textViewNuevo;
+    private  Context context = getApplicationContext();
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,17 +126,25 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
     protected void onStart() {
-        super.onStart();
+        super.onStart();// ATTENTION: This was auto-generated to implement the App Indexing API.
+// See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
         textViewNuevo.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(InicioSesion.this, Registrar.class));
             }
         });
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
     }
 
     private void populateAutoComplete() {
@@ -144,7 +164,7 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
             Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
-                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                    .setAction(android.R.string.ok, new OnClickListener() {
                         @Override
                         @TargetApi(Build.VERSION_CODES.M)
                         public void onClick(View v) {
@@ -312,6 +332,32 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
         mEmailView.setAdapter(adapter);
     }
 
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("InicioSesion Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
+
 
     private interface ProfileQuery {
         String[] PROJECTION = {
@@ -345,7 +391,7 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
             // TODO: register the new account here.
             try {
                 url = new URL(Constantes._URL_AUTENTIFICACION);
-            } catch (MalformedURLException e){
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
 
@@ -411,22 +457,26 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
                 JSONArray nom = group_info.getJSONArray("nom");
                 String id = idUs.getString(0);
                 String nombre = nom.getString(0);
-                Log.d("Session", "id: " + id + " nombre: "+ nombre);
-                ((Init)getApplicationContext()).setIdUsuario(id);
-                ((Init)getApplicationContext()).setNombreUsuario(nombre);
+                Log.d("Session", "id: " + id + " nombre: " + nombre);
+                ((Init) getApplicationContext()).setIdUsuario(id);
+                ((Init) getApplicationContext()).setNombreUsuario(nombre);
 
-                for (int i = 0; i < code.length() ; i++) {
+                for (int i = 0; i < code.length(); i++) {
                     int response = code.getInt(i);
                     showProgress(false);
 
-                    switch (response){
+                    switch (response) {
+                        case 0:
+                            Log.d("Session", "codeError: " + response);
+                            Toast.makeText(context, "USUARIO NO REGISTRADO", Toast.LENGTH_SHORT).show();
+                            break;
                         case 3:
                             Log.d("Session", "id: " + response);
-                            startActivity(new Intent(getApplicationContext(),SessionDristribuidor.class));
+                            startActivity(new Intent(getApplicationContext(), SessionDristribuidor.class));
                             break;
                         case 4:
                             Log.d("Session", "id: " + response);
-                            startActivity(new Intent(getApplicationContext(),SessionCliente.class));
+                            startActivity(new Intent(getApplicationContext(), SessionCliente.class));
                             break;
                     }
                     /*if (response == 4) {
