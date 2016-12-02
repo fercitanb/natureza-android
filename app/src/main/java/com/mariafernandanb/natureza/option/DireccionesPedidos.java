@@ -1,5 +1,6 @@
 package com.mariafernandanb.natureza.option;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mariafernandanb.natureza.Init;
+import com.mariafernandanb.natureza.PedidosDistribuidor;
 import com.mariafernandanb.natureza.R;
 import com.mariafernandanb.natureza.util.Constantes;
 
@@ -87,10 +89,8 @@ public class DireccionesPedidos extends Fragment implements OnMapReadyCallback, 
     public boolean onMarkerClick(Marker marker) {
 
         int id = (int) marker.getZIndex();
-        Log.d("Dir", "Cast index: " + id);
-
-        //startActivity(new Intent(getActivity(), registroDireccion.class).putExtra("idDireccion", id));
-
+        String idPedido = String.valueOf(id);
+        startActivity(new Intent(getActivity(), PedidosDistribuidor.class).putExtra("idPedido", idPedido));
         return false;
     }
 
@@ -187,7 +187,7 @@ public class DireccionesPedidos extends Fragment implements OnMapReadyCallback, 
                             .position(new LatLng(Double.parseDouble(jsonGroup.getString("latitud")),Double.parseDouble(jsonGroup.getString("longitud"))))
                             .title("Pedido")
                             .snippet(jsonGroup.getString("nombreDireccion"))
-                            .zIndex(Float.parseFloat(jsonGroup.getString("idDireccion"))));
+                            .zIndex(Float.parseFloat(jsonGroup.getString("idPedido"))));
                             //.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_markdist));
                             //"Pedido: "+jsonGroup.getString("idPedido")+" Cliente: "+jsonGroup.getString("nombre")+" "+jsonGroup.getString("apPaterno")
                 }

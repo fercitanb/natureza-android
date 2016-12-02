@@ -53,6 +53,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/email"
+                        android:text="distribuidor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_email"
@@ -78,6 +79,7 @@
                         android:imeOptions="actionUnspecified"
                         android:inputType="textPassword"
                         android:maxLines="1"
+                        android:text="distribuidor"
                         android:singleLine="true"
 
                         />
