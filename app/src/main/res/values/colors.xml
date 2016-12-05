@@ -5,6 +5,7 @@
     <color name="colorAccent">#0A52C1</color>
     <color name="colorFont">#008080</color>
     <color name="colorA">#FDC300</color>
-    <color name="colorV">#7ACC1F</color>
+    <color name="colorV">#7fb23b</color>
     <color name="colorAz">#097DEA</color>
+    <color name="colorB">#dbdba4</color>
 </resources>
