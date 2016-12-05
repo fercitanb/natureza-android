@@ -333,12 +333,10 @@ public class registroDireccion extends FragmentActivity implements OnMapReadyCal
                         case 0:
                             Log.d("Session", "codeError: " + response);
                             Toast.makeText(registroDireccion,"Error al intentar insertar direccion",Toast.LENGTH_SHORT).show();
-                            //startActivity(new Intent(getApplicationContext(),SessionDristribuidor.class));
                             break;
                         case 1:
                             Log.d("Session", "codeError: " + response);
                             registroDireccion.onBackPressed();
-                            //startActivity(new Intent(getApplicationContext(),SessionCliente.class));
                             break;
                     }
 

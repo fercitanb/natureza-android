@@ -86,7 +86,6 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
     private View mProgressView;
     private View mLoginFormView;
     private TextView textViewNuevo;
-    private  Context context = getApplicationContext();
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -468,15 +467,15 @@ public class InicioSesion extends AppCompatActivity implements LoaderCallbacks<C
                     switch (response) {
                         case 0:
                             Log.d("Session", "codeError: " + response);
-                            Toast.makeText(context, "USUARIO NO REGISTRADO", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(InicioSesion.this, "USUARIO NO REGISTRADO", Toast.LENGTH_SHORT).show();
                             break;
                         case 3:
                             Log.d("Session", "id: " + response);
-                            startActivity(new Intent(getApplicationContext(), SessionDristribuidor.class));
+                            startActivity(new Intent(InicioSesion.this, SessionDristribuidor.class));
                             break;
                         case 4:
                             Log.d("Session", "id: " + response);
-                            startActivity(new Intent(getApplicationContext(), SessionCliente.class));
+                            startActivity(new Intent(InicioSesion.this, SessionCliente.class));
                             break;
                     }
                     /*if (response == 4) {

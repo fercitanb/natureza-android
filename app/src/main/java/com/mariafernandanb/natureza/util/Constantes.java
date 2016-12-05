@@ -18,15 +18,9 @@ public class Constantes {
     public static final String _URL_OBTENER_PRODUCTOS = ip+"/recuperaProductos.php";
     public static final String _URL_OBTENER_EQUIPOS = ip+"/recuperaEquipos.php";
     public static final String _URL_OBTENER_DIRECCIONPEDIDOS = ip+"/recuperaDireccionPedidos.php";
-    /*
-     Productos
-    {"productos":[{"idProducto":"4","nombre":"Agua","medida":"20 Lts","precio":"13.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/14199356_1096766297026397_3574568724556265064_n.jpg"},{"idProducto":"6","nombre":"Ice Tea","medida":"250 ml","precio":"6.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/agua.jpg"},{"idProducto":"7","nombre":"agua rica","medida":"250 ml","precio":"3.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/bglogin.jpg"},{"idProducto":"19","nombre":"hielo","medida":"2 lt","precio":"3.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/hielo.jpg"},{"idProducto":"22","nombre":"jugo","medida":"500","precio":"8.00","imagen":"http:\/\/localhost:90\/natureza\/img\/producto\/depositphotos_6807908-Delivery-man-with-big-bottle.jpg"}]}
+    public static final String _URL_OBTENER_PEDIDO = ip+"/recuperaPedido.php";
+    public static final String _URL_OBTENER_DETALLE_PEDIDO = ip+"/recuperaDetallePedido.php";
 
-    */
-    /*
-    Equipos
-    {"equipos":[{"idEquipo":"1","nombre":"Dispensador Sencillo","descripcion":"Dispensador de agua de pl\u00e1stico ","codigo":"DS-001","imagen":"http:\/\/localhost:90\/natureza\/img\/equipo\/dispenser-de-agua-para-botellones_iZ4XvZxXpZ1XfZ127232528-439315845-1.jpgXsZ127232528xIM.jpg"},{"idEquipo":"3","nombre":"Dispensador Frio\/Calor","descripcion":"Dispensador de agua de material pl\u00e1stico","codigo":"DFC-001","imagen":"http:\/\/localhost:90\/natureza\/img\/equipo\/3-6-1.jpg"},{"idEquipo":"6","nombre":"Botell\u00f3n de Pl\u00e1stico","descripcion":"Botellon de agua de material pl\u00e1stico de 20 Lt","codigo":"BP-001","imagen":"http:\/\/localhost:90\/natureza\/img\/equipo\/botella agua mineral.jpg"}]}
-    */
 
     /*
     Pedidos

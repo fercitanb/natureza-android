@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_marginTop="1dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+
+    android:layout_width="match_parent"
+    android:layout_height="136dp">
+
+    <LinearLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/img_placeholder"
+            android:id="@+id/iv_cell_pedido_logo"
+            android:contentDescription="@string/app_name"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:gravity="end|center_vertical"
+                android:text="Nombre: "
+                android:textSize="17sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:gravity="end|center_vertical"
+                android:text="Medida: "
+                android:textSize="17sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:gravity="end|center_vertical"
+                android:text="Cantidad: "
+                android:textSize="17sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:gravity="end|center_vertical"
+                android:text="Precio: "
+                android:textSize="17sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_cell_pedido_nombre"
+                android:gravity="center_vertical"
+                android:hint="Nombre: "
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_cell_pedido_medida"
+                android:gravity="center_vertical"
+                android:hint="Medida: "
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_cell_pedido_cantidad"
+                android:gravity="center_vertical"
+                android:hint="Cantidad: "
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_cell_pedido_precio"
+                android:gravity="center_vertical"
+                android:hint="Precio: "
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

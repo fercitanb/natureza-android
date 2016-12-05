@@ -75,6 +75,10 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".pedir"></activity>
+
+        <activity
+            android:label="Detalle Pedido"
+            android:name=".PedidosDistribuidor"/>
     </application>
 
 </manifest>
