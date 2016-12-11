@@ -1,9 +1,12 @@
 package com.mariafernandanb.natureza;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,8 +14,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.github.snowdream.android.widget.SmartImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,6 +52,7 @@ public class PedidosDistribuidor extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager linearLayout;
     private TextView tvTotal;
+    private Button btnCancelar, btnAceptar;
 
     private String idPedido;
 
@@ -57,6 +65,8 @@ public class PedidosDistribuidor extends AppCompatActivity {
         Log.d(TAG, "idPedido: " + idPedido);
         tvTotal = (TextView) findViewById(R.id.tv_activity_pedidos);
         recyclerView = (RecyclerView) findViewById(R.id.rv_pedido_distribuidor);
+        btnCancelar = (Button) findViewById(R.id.btn_pedidos_distribuidor_cancelar);
+        btnAceptar = (Button) findViewById(R.id.btn_pedidos_distribuidor_aceptar);
         recyclerView.setHasFixedSize(true);
         linearLayout = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayout);
@@ -66,6 +76,20 @@ public class PedidosDistribuidor extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog1().show();
+            }
+        });
+
+        btnAceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog().show();
+            }
+        });
     }
 
     private class GetOrderByDistributor extends AsyncTask<Void,Void,Void> {
@@ -147,6 +171,7 @@ public class PedidosDistribuidor extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+
             pedidoModelos = new ArrayList<>();
             try {
                 JSONObject group_info = new JSONObject(String.valueOf(resultPedido));
@@ -191,7 +216,7 @@ public class PedidosDistribuidor extends AppCompatActivity {
         @Override
         public void onBindViewHolder(PDAdapter.PDHolder holder, int position) {
             PedidoModelo pedidoModelo = pedidoModelos.get(position);
-
+            holder.imagen.setImageUrl(pedidoModelo.getImagen(),null);
             holder.tvNombre.setText(pedidoModelo.getNombre());
             holder.tvMedida.setText(pedidoModelo.getMedida());
             holder.tvCantidad.setText(pedidoModelo.getCantidad());
@@ -205,19 +230,58 @@ public class PedidosDistribuidor extends AppCompatActivity {
 
         public class PDHolder extends RecyclerView.ViewHolder {
 
-            ImageView imageViewLogo;
+            SmartImageView imagen;
             TextView tvNombre, tvMedida, tvCantidad, tvPrecio;
 
             public PDHolder(View itemView) {
                 super(itemView);
-
-                imageViewLogo = (ImageView) itemView.findViewById(R.id.iv_cell_pedido_logo);
+                imagen = (SmartImageView) itemView.findViewById(R.id.iv_cell_pedido_logo);
                 tvNombre = (TextView) itemView.findViewById(R.id.tv_cell_pedido_nombre);
                 tvMedida = (TextView) itemView.findViewById(R.id.tv_cell_pedido_medida);
                 tvCantidad = (TextView) itemView.findViewById(R.id.tv_cell_pedido_cantidad);
                 tvPrecio = (TextView) itemView.findViewById(R.id.tv_cell_pedido_precio);
             }
         }
+    }
+
+    private Dialog dialog1() {
+        final EditText editText;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final LayoutInflater inflater = (LayoutInflater) this.getSystemService(PedidosDistribuidor.LAYOUT_INFLATER_SERVICE);
+        final View view = inflater.inflate(R.layout.modal_cancelar, null);
+        editText = (EditText) view.findViewById(R.id.et_modal_cancelar);
+        builder.setView(view).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        return builder.create();
+    }
+
+    private Dialog dialog() {
+        final EditText editText;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final LayoutInflater inflater = (LayoutInflater) this.getSystemService(PedidosDistribuidor.LAYOUT_INFLATER_SERVICE);
+        final View view = inflater.inflate(R.layout.modal_aceptar, null);
+        editText = (EditText) view.findViewById(R.id.et_modal_aceptar);
+        builder.setView(view).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        return builder.create();
     }
 
 
