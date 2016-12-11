@@ -10,7 +10,7 @@ public class Constantes {
 
     // URL from Services
     //public static final
-    static String ip = "http://natureza.nextbooks.xyz/WebServices";
+    /*static String ip = "http://natureza.nextbooks.xyz/WebServices";
     public static final String _URL_AUTENTIFICACION = ip+"/autentificacion.php";
     public static final String _URL_REGISTRO = ip+"/registroCliente.php";
     public static final String _URL_DIRECCION = ip+"/registroDireccion.php";
@@ -19,7 +19,18 @@ public class Constantes {
     public static final String _URL_OBTENER_EQUIPOS = ip+"/recuperaEquipos.php";
     public static final String _URL_OBTENER_DIRECCIONPEDIDOS = ip+"/recuperaDireccionPedidos.php";
     public static final String _URL_OBTENER_PEDIDO = ip+"/recuperaPedido.php";
-    public static final String _URL_OBTENER_DETALLE_PEDIDO = ip+"/recuperaDetallePedido.php";
+    public static final String _URL_OBTENER_DETALLE_PEDIDO = ip+"/recuperaDetallePedido.php";*/
+
+    static String ip = "10.0.0.20";
+    public static final String _URL_AUTENTIFICACION = "http://"+ip+":90/natureza/WebServices/autentificacion.php";
+    public static final String _URL_REGISTRO = "http://"+ip+":90/natureza/WebServices/registroCliente.php";
+    public static final String _URL_DIRECCION = "http://"+ip+":90/natureza/WebServices/registroDireccion.php";
+    public static final String _URL_OBTENER_DIRECCION = "http://"+ip+":90/natureza/WebServices/recuperaDirecciones.php";
+    public static final String _URL_OBTENER_PRODUCTOS = "http://"+ip+":90/natureza/WebServices/recuperaProductos.php";
+    public static final String _URL_OBTENER_EQUIPOS = "http://"+ip+":90/natureza/WebServices/recuperaEquipos.php";
+    public static final String _URL_OBTENER_DIRECCIONPEDIDOS = "http://"+ip+":90/natureza/WebServices/recuperaDireccionPedidos.php";
+    public static final String _URL_OBTENER_PEDIDO = "http://"+ip+":90/natureza/WebServices/recuperaPedido.php";
+    public static final String _URL_OBTENER_DETALLE_PEDIDO = "http://"+ip+":90/natureza/WebServices/recuperaDetallePedido.php";
 
 
     /*

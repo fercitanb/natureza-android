@@ -1,5 +1,6 @@
 package com.mariafernandanb.natureza.option;
 
+import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.snowdream.android.widget.SmartImageView;
 import com.mariafernandanb.natureza.ProductosModelo;
 import com.mariafernandanb.natureza.R;
 import com.mariafernandanb.natureza.util.Constantes;
@@ -39,11 +41,11 @@ public class Productos extends Fragment {
     private RecyclerView recyclerView;
     private GridLayoutManager gridLayoutManager;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.opt_producto, container, false);
-
         recyclerView = (RecyclerView) view.findViewById(R.id.rv_item);
         recyclerView.setHasFixedSize(true);
         gridLayoutManager = new GridLayoutManager(getContext(), 3);
@@ -124,6 +126,9 @@ public class Productos extends Fragment {
 
                 for (int i = 0; i < jsonArray.length() ; i++) {
                     JSONObject jsonGroup = jsonArray.getJSONObject(i);
+                    //String urlImagen = jsonGroup.getString("imagen");
+                    //Rect rect = new Rect(imagen.getLeft(),imagen.getTop(),imagen.getRight(), imagen.getBottom());
+                    //imagen.setImageUrl(urlImagen,rect);
                     productosModelos.add(i, new ProductosModelo(jsonGroup.getString("idProducto"),jsonGroup.getString("nombre"),jsonGroup.getString("medida"),jsonGroup.getString("precio"),jsonGroup.getString("imagen")));
                     recyclerView.setAdapter(new ItemAdapter(productosModelos));
                 }
@@ -156,6 +161,8 @@ public class Productos extends Fragment {
             holder.textViewTitle.setText(productosModelo.getNombre());
             holder.textViewPrice.setText(productosModelo.getPrecio());
             holder.textViewContent.setText(productosModelo.getMedida());
+            Log.d("Session",productosModelo.getImagen());
+            holder.imagen.setImageUrl(productosModelo.getImagen(),null);
         }
 
         @Override
@@ -168,6 +175,7 @@ public class Productos extends Fragment {
             private TextView textViewTitle;
             private TextView textViewPrice;
             private TextView textViewContent;
+            private SmartImageView imagen;
 
             public CellItem(View itemView) {
                 super(itemView);
@@ -175,6 +183,7 @@ public class Productos extends Fragment {
                 textViewTitle = (TextView) itemView.findViewById(R.id.tv_cell_item_title);
                 textViewPrice = (TextView) itemView.findViewById(R.id.tv_cell_item_precio);
                 textViewContent = (TextView) itemView.findViewById(R.id.tv_cell_item_detail);
+                imagen = (SmartImageView) itemView.findViewById(R.id.iv_cell_item_logo);
 
             }
         }

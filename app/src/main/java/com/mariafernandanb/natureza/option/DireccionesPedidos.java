@@ -181,14 +181,15 @@ public class DireccionesPedidos extends Fragment implements OnMapReadyCallback, 
 
                 for (int i = 0; i < code.length() ; i++) {
                     JSONObject jsonGroup = code.getJSONObject(i);
+                    String tit = "Pedido "+jsonGroup.getString("idPedido")+" -> Cliente: "+jsonGroup.getString("nombre")+" "+jsonGroup.getString("apPaterno");
 
 
                     gMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Double.parseDouble(jsonGroup.getString("latitud")),Double.parseDouble(jsonGroup.getString("longitud"))))
-                            .title("Pedido")
+                            .title(tit)
                             .snippet(jsonGroup.getString("nombreDireccion"))
-                            .zIndex(Float.parseFloat(jsonGroup.getString("idPedido"))));
-                            //.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_markdist));
+                            .zIndex(Float.parseFloat(jsonGroup.getString("idPedido"))))
+                            .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marcador));
                             //"Pedido: "+jsonGroup.getString("idPedido")+" Cliente: "+jsonGroup.getString("nombre")+" "+jsonGroup.getString("apPaterno")
                 }
 

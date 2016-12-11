@@ -28,7 +28,7 @@
                 android:gravity="end|center_vertical"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:hint="TOTAL: 300 Bs."
+                android:hint="TOTAL: Bs."
                 android:id="@+id/tv_activity_pedidos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
