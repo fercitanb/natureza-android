@@ -31,6 +31,8 @@ public class Constantes {
     public static final String _URL_OBTENER_DIRECCIONPEDIDOS = "http://"+ip+":90/natureza/WebServices/recuperaDireccionPedidos.php";
     public static final String _URL_OBTENER_PEDIDO = "http://"+ip+":90/natureza/WebServices/recuperaPedido.php";
     public static final String _URL_OBTENER_DETALLE_PEDIDO = "http://"+ip+":90/natureza/WebServices/recuperaDetallePedido.php";
+    public static final String _URL_ACEPTAR_PEDIDO = "http://"+ip+":90/natureza/WebServices/recuperaDetallePedido.php";
+    public static final String _URL_CANCELAR_PEDIDO = "http://"+ip+":90/natureza/WebServices/recuperaDetallePedido.php";
 
 
     /*

@@ -253,6 +253,8 @@ public class PedidosDistribuidor extends AppCompatActivity {
         builder.setView(view).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                String monto = editText.getText().toString();
+                new AceptarPedido(idPedido, monto).execute();
                 dialog.dismiss();
             }
         }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -273,6 +275,8 @@ public class PedidosDistribuidor extends AppCompatActivity {
         builder.setView(view).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                String monto = editText.getText().toString();
+                new AceptarPedido(idPedido, monto).execute();
                 dialog.dismiss();
             }
         }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
